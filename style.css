@@ -77,3 +77,52 @@ dialog {
 .book {
   color: red
 }
+
+.site {
+  display: grid;
+  grid-template-rows: 100vh 100vh;
+}
+
+header {
+  
+  background-image: url(library.jpg);
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+/* @initial{
+ .bar {
+  opacity: 0;
+ }} */
+
+.bar {
+  height: 20vh;
+  min-height: fit-content;
+  background-color: black;
+  transition: opacity 2000ms;
+  opacity: 0.7;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: -10vh;
+  gap: 0.3rem;
+  padding: 1rem;
+}
+
+.bar p {
+  color: rgb(240, 248, 255);
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+}
+
+.welcome{
+  /* margin-top: -5vh; */
+  font-size: 2rem;
+}
+.welcome2{
+  font-size: 1.2rem;
+  font-style: italic;
+}
+

@@ -8,42 +8,45 @@
     <script src="script.js" defer></script>
 </head>
 <body>
-    <header>
-        <p>Welcome in our library</p>
-        <p>“A reader lives a thousand lives before he dies. The man who never reads lives only one.”</p>    
-    </header>
-    <div class="books">
-        <button id="status">read?</button>
-        <button class="remove">remove</button>
-     
-    </div>
-    <button id="new">add new book</button>
-    <dialog id="dialogWindow">
-        <form method="dialog">
-            <div class="dialogBox">
-                <div class="line">
-                    <label for="title">Title:</label>
-                    <input type="text" name="title" id="title">
-                </div>
-                <div class="line">
-                    <label for="author">Author:</label>
-                    <input type="text" name="author" id="author">
-                </div>
-                <div class="line">
-                    <label for="pages">How many pages?</label>
-                    <input type="number" name="pages" id="pages">
-                </div>
-                <div class="line">
-                    <label for="read">Already read?</label>
-                    <input type="checkbox" name="read" id="read">
-                </div>
-                <!-- <label for="info">Info:</label>
-                <textarea name="info" id="info" cols="20" rows="5"></textarea> -->
+    <div class="site">
+        <header>
+            <div class="bar">
+                <p class="welcome">Welcome in your library</p>
+                <p class="welcome2">“A reader lives a thousand lives before he dies. The man who never reads lives only one.”</p>
             </div>
-            <button id="confirm" value="default">Confirm</button>
-
-        </form>
-    </dialog>
+        </header>
+        <div class="books">
+            <button id="status">read?</button>
+            <button id="remove">remove</button>
+        
+        </div>
+        <button id="new">add new book</button>
+        <dialog id="dialogWindow">
+            <form method="dialog">
+                <div class="dialogBox">
+                    <div class="line">
+                        <label for="title">Title:</label>
+                        <input type="text" name="title" id="title">
+                    </div>
+                    <div class="line">
+                        <label for="author">Author:</label>
+                        <input type="text" name="author" id="author">
+                    </div>
+                    <div class="line">
+                        <label for="pages">How many pages?</label>
+                        <input type="number" name="pages" id="pages">
+                    </div>
+                    <div class="line">
+                        <label for="read">Already read?</label>
+                        <input type="checkbox" name="read" id="read">
+                    </div>
+                    <!-- <label for="info">Info:</label>
+                    <textarea name="info" id="info" cols="20" rows="5"></textarea> -->
+                </div>
+                <button id="confirm" value="default">Confirm</button>
+            </form>
+        </dialog>
+    </div>
 
 </body>
 </html>
