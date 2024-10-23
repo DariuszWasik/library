@@ -8,6 +8,8 @@ function Book(title, author, pages, read) {
     this.author = author;
     this.pages = pages;
     this.read = read;
+    // this.dataIndex = myLibrary.indexOf(this);
+
     // this.info = info;
 }
 
@@ -19,9 +21,13 @@ addBookToLibrary(book2);
 
 function addBookToLibrary(a) {
     myLibrary.push(a);
-    a.data = myLibrary.indexOf(a)
+    giveIndex();
+    }
 
-}
+function giveIndex() {
+    myLibrary.forEach((a)=>{
+        a.dataIndex = myLibrary.indexOf(a)}
+    )}
 
 const dialogWindow = document.getElementById("dialogWindow");
 
@@ -69,27 +75,41 @@ confirmBtn.addEventListener('click', (e) =>{
     putBooksOnScreen();
 } )
 
-const status = document.querySelector('#status');
-const remove = document.querySelector('#remove')
 
 function putBooksOnScreen () {
-    // console.log(container.innerHTML)
     container.innerHTML = ''
     myLibrary.forEach((book) => {
         let div =  document.createElement('div');
        div.className = 'book';
        let content = `
-        <h3>${book.title}</h3>
-            <h5>by ${book.author}</h5>
-            <p>${book.pages } pages</p>
+       <h3>${book.title}</h3>
+       <h5>by ${book.author}</h5>
+       <p>${book.pages } pages</p>
             <p>Read? ${book.read}</p>
              <button id="status">read?</button>
-            <button id="remove">remove</button>
-            `
+             <button id="remove" class="${book.dataIndex}">remove</button>
+             `
             div.innerHTML = content;
             container.appendChild(div);
             
         })
-        container.appendChild(buttonNew)
-    }
+        container.appendChild(buttonNew);
+        
+        
+        const status = document.querySelector('#status');
+        const remove = document.querySelectorAll('#remove');
+        
+        remove.forEach( (r)=> r.addEventListener('click', () => {
+            let i = parseInt(r.className);
+            myLibrary.splice(i,1);
+            giveIndex();
+            r.style.backgroundColor = "red";
+            putBooksOnScreen();
+        }
+        )
+        )
+
+    }    
     putBooksOnScreen();
+
+    
