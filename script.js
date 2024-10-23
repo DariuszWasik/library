@@ -19,6 +19,7 @@ addBookToLibrary(book2);
 
 function addBookToLibrary(a) {
     myLibrary.push(a);
+    a.data = myLibrary.indexOf(a)
 
 }
 
@@ -68,6 +69,9 @@ confirmBtn.addEventListener('click', (e) =>{
     putBooksOnScreen();
 } )
 
+const status = document.querySelector('#status');
+const remove = document.querySelector('#remove')
+
 function putBooksOnScreen () {
     // console.log(container.innerHTML)
     container.innerHTML = ''
@@ -79,6 +83,8 @@ function putBooksOnScreen () {
             <h5>by ${book.author}</h5>
             <p>${book.pages } pages</p>
             <p>Read? ${book.read}</p>
+             <button id="status">read?</button>
+            <button id="remove">remove</button>
             `
             div.innerHTML = content;
             container.appendChild(div);
