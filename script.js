@@ -70,6 +70,7 @@ confirmBtn.addEventListener('click', (e) =>{
 
 function putBooksOnScreen () {
     // console.log(container.innerHTML)
+    container.innerHTML = ''
     myLibrary.forEach((book) => {
         let div =  document.createElement('div');
        div.className = 'book';
@@ -80,8 +81,9 @@ function putBooksOnScreen () {
             <p>Read? ${book.read}</p>
             `
             div.innerHTML = content;
-            container.insertBefore(div, buttonNew)
+            container.appendChild(div);
             
         })
+        container.appendChild(buttonNew)
     }
     putBooksOnScreen();
