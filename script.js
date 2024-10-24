@@ -15,10 +15,16 @@ Book.prototype.toggle = function() {
 }
 
 const book1 = new Book ('Robinson Crusoe', 'Daniel Defoe', 357, true);
-const book2 = new Book ('Lord of the Rings', 'JRR Tolkien', 1265, true);
+const book2 = new Book ('Lord of the Rings', 'JRR Tolkien', 2265, true);
+const book3 = new Book ('Hobbit', 'JRR Tolkien', 320, false);
+const book4 = new Book ('Orthodoxy', 'G.K. Chesterton', 411, true);
+const book5 = new Book ('The Witcher', 'Andrzej Sapkowski', 1387, true);
 
 addBookToLibrary(book1);
 addBookToLibrary(book2);
+addBookToLibrary(book3);
+addBookToLibrary(book4);
+addBookToLibrary(book5);
 
 function addBookToLibrary(a) {
     myLibrary.push(a);
@@ -43,7 +49,6 @@ buttonNew.addEventListener('click', () => {
     read.checked = false;
 });
 
-// dialogWindow.showModal();
 
 const confirmBtn = document.getElementById('confirm');
 const author = document.querySelector('#author');
@@ -71,8 +76,6 @@ confirmBtn.addEventListener('click', (e) =>{
     newBook = {};
     currentBook = [];
     dialogWindow.close();
-    // container.innerHTML = `<button id="new">add new book</button>`
-    // const buttonNew = document.querySelector("#new");
     putBooksOnScreen();
 } )
 
@@ -87,8 +90,10 @@ function putBooksOnScreen () {
        <h5>by ${book.author}</h5>
        <p>${book.pages } pages</p>
             <p>Read? ${book.read}</p>
+            <div class='btns'>
              <button id="status" class="${book.dataIndex}">read?</button>
              <button id="remove" class="${book.dataIndex}">remove</button>
+            </div>
              `
             div.innerHTML = content;
             container.appendChild(div);
