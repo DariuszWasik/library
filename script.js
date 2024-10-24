@@ -8,9 +8,10 @@ function Book(title, author, pages, read) {
     this.author = author;
     this.pages = pages;
     this.read = read;
-    // this.dataIndex = myLibrary.indexOf(this);
+}
 
-    // this.info = info;
+Book.prototype.toggle = function() {
+    this.read = !(this.read);
 }
 
 const book1 = new Book ('Robinson Crusoe', 'Daniel Defoe', 357, true);
@@ -86,7 +87,7 @@ function putBooksOnScreen () {
        <h5>by ${book.author}</h5>
        <p>${book.pages } pages</p>
             <p>Read? ${book.read}</p>
-             <button id="status">read?</button>
+             <button id="status" class="${book.dataIndex}">read?</button>
              <button id="remove" class="${book.dataIndex}">remove</button>
              `
             div.innerHTML = content;
@@ -96,18 +97,22 @@ function putBooksOnScreen () {
         container.appendChild(buttonNew);
         
         
-        const status = document.querySelector('#status');
+        const status = document.querySelectorAll('#status');
         const remove = document.querySelectorAll('#remove');
         
         remove.forEach( (r)=> r.addEventListener('click', () => {
             let i = parseInt(r.className);
             myLibrary.splice(i,1);
             giveIndex();
-            r.style.backgroundColor = "red";
             putBooksOnScreen();
-        }
-        )
-        )
+        }))
+
+        status.forEach( (s) => s.addEventListener('click', () => {
+            let i = parseInt(s.className);
+            myLibrary[i].toggle();
+            giveIndex();
+            putBooksOnScreen();
+        }))
 
     }    
     putBooksOnScreen();
